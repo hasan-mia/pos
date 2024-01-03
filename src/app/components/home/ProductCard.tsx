@@ -1,22 +1,18 @@
+import { ProductItem } from "@/app/page";
 import Image from "next/image";
 import React from "react";
 
 interface ProductCardProps {
-	product: {
-		id: number;
-		title: string;
-		image: string;
-		link: string;
-		price: number;
-	};
+	product: ProductItem;
+	addToCart: (product: ProductItem) => void;
 }
-
-const ProducctCard: React.FC<ProductCardProps> = ({ product }) => {
-	const AddToCart = () => {
-		console.log(product);
-	};
+const ProductCard: React.FC<ProductCardProps> = ({ product, addToCart }) => {
 	return (
-		<button type="button" className="flex flex-col items-center border rounded">
+		<button
+			type="button"
+			className="flex flex-col items-center border rounded"
+			onClick={() => addToCart(product)}
+		>
 			<div className="w-full h-36 flex items-center justify-center">
 				<Image
 					src={`${product?.image} || https://i.imgur.com/WDXKO9A.jpg`}
@@ -37,4 +33,4 @@ const ProducctCard: React.FC<ProductCardProps> = ({ product }) => {
 	);
 };
 
-export default ProducctCard;
+export default ProductCard;
