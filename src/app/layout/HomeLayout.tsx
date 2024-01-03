@@ -57,19 +57,7 @@ const HomeLayout: React.FC<Node> = ({ children }) => {
 	);
 
 	return (
-		<div
-			style={
-				isFullScreen
-					? {
-							width: "100vw",
-							height: "100vh",
-							position: "fixed",
-							top: 0,
-							left: 0,
-					  }
-					: {}
-			}
-		>
+		<div>
 			<Navbar navItemList={navItemList} toggleFullScreen={toggleFullScreen} />
 			<main className="drawer">
 				{/* Desktop Drawer */}

@@ -11,6 +11,7 @@ export interface CartListItem extends ProductItem {
 
 const HomeIndex: React.FC<HomeIndexProps> = ({ Categories, ProductList }) => {
 	const [cartList, setCartList] = useState<CartListItem[]>([]);
+
 	// Add to Cart handler
 	const addToCart = (product: ProductItem) => {
 		const existingProduct = cartList.find((item) => item.id === product.id);
@@ -27,6 +28,7 @@ const HomeIndex: React.FC<HomeIndexProps> = ({ Categories, ProductList }) => {
 			setCartList((prev) => [...prev, { ...product, quantity: 1 }]);
 		}
 	};
+
 	// Increment handler
 	const inCrement = (productId: number) => {
 		setCartList((prev) =>
@@ -40,11 +42,16 @@ const HomeIndex: React.FC<HomeIndexProps> = ({ Categories, ProductList }) => {
 	const deCrement = (productId: number) => {
 		setCartList((prev) =>
 			prev.map((item) =>
-				item.id === productId && item.quantity > 0
+				item.id === productId && item.quantity > 1
 					? { ...item, quantity: item.quantity - 1 }
 					: item,
 			),
 		);
+	};
+
+	// Delete handler
+	const deleteItem = (productId: number) => {
+		setCartList((prev) => prev.filter((item) => item.id !== productId));
 	};
 
 	return (
@@ -64,6 +71,7 @@ const HomeIndex: React.FC<HomeIndexProps> = ({ Categories, ProductList }) => {
 					cartList={cartList}
 					inCrement={inCrement}
 					deCrement={deCrement}
+					deleteItem={deleteItem}
 				/>
 			</div>
 

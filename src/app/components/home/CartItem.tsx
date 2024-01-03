@@ -8,9 +8,15 @@ interface CartItemProps {
 	cart: CartListItem;
 	inCrement: (productId: number) => void;
 	deCrement: (productId: number) => void;
+	deleteItem: (productId: number) => void;
 }
 
-const CartItem: React.FC<CartItemProps> = ({ cart, inCrement, deCrement }) => {
+const CartItem: React.FC<CartItemProps> = ({
+	cart,
+	inCrement,
+	deCrement,
+	deleteItem,
+}) => {
 	return (
 		<>
 			<div className="flex justify-center items-center my-2">
@@ -34,11 +40,11 @@ const CartItem: React.FC<CartItemProps> = ({ cart, inCrement, deCrement }) => {
 								</button>
 							</div>
 						</div>
-						<div className="w-2/12">Total</div>
+						<div className="w-2/12">{cart?.quantity * cart?.price}</div>
 					</div>
 				</div>
 				<div className="w-1/12 px-1 flex justify-center">
-					<button type="button">
+					<button type="button" onClick={() => deleteItem(cart.id)}>
 						<BiTrash color="red" size={18} />
 					</button>
 				</div>
