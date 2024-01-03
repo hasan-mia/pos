@@ -6,6 +6,7 @@ import { SlNote } from "react-icons/sl";
 
 import { useState } from "react";
 import Navbar from "../components/header/Navbar";
+import Button from "../components/shared/Button";
 
 interface Node {
 	children: React.ReactNode;
@@ -21,28 +22,36 @@ const HomeLayout: React.FC<Node> = ({ children }) => {
 	const navItemList = () => (
 		<>
 			<li>
-				<button className="flex gap-3 text-sm items-center bg-slate-200 rounded py-2 px-4">
-					<SlNote color="blue" size={14} />
-					<span className="text-blue-600">Note</span>
-				</button>
+				<Button
+					className="text-sm bg-slate-200 rounded py-2 px-4"
+					icon={<SlNote color="blue" />}
+					color="blue"
+					name="Note"
+				/>
 			</li>
 			<li>
-				<button className="flex gap-3 text-sm items-center bg-slate-200 rounded py-2 px-4">
-					<MdOutlineLocalShipping color="blue" size={18} />
-					<span className="text-blue-600">Shipping</span>
-				</button>
+				<Button
+					className="text-sm bg-slate-200 rounded py-2 px-4"
+					icon={<MdOutlineLocalShipping color="blue" />}
+					color="blue"
+					name="Shipping"
+				/>
 			</li>
 			<li>
-				<button className="flex gap-3 text-sm items-center bg-slate-200 rounded py-2 px-4">
-					<PiClockClockwise color="blue" size={20} />
-					<span className="text-blue-600">Hold Orders</span>
-				</button>
+				<Button
+					className="text-sm bg-slate-200 rounded py-2 px-4"
+					icon={<PiClockClockwise color="blue" />}
+					color="blue"
+					name="Hold Orders"
+				/>
 			</li>
 			<li>
-				<button className="flex gap-3 text-sm items-center bg-slate-200 rounded py-2 px-4">
-					<BiPlus color="blue" size={20} />
-					<span className="text-blue-600">New Item</span>
-				</button>
+				<Button
+					className="text-sm bg-slate-200 rounded py-2 px-4"
+					icon={<BiPlus color="blue" />}
+					color="blue"
+					name="New Item"
+				/>
 			</li>
 		</>
 	);

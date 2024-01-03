@@ -1,6 +1,7 @@
 "use client";
 import { LuLogOut } from "react-icons/lu";
 import { MdFullscreen } from "react-icons/md";
+import Button from "../shared/Button";
 
 interface NavbarProps {
 	navItemList: any;
@@ -47,16 +48,18 @@ const Navbar: React.FC<NavbarProps> = ({ navItemList, toggleFullScreen }) => {
 						/>
 					</div>
 					<div className="flex gap-2">
-						<button
-							className="flex gap-1 text-xl items-center bg-gray-500 rounded p-1"
+						<Button
+							className="text-sm bg-gray-500 gap-1 p-1 rounded"
 							onClick={toggleFullScreen}
-						>
-							<MdFullscreen color="white" />
-						</button>
-						<button className="flex gap-1 text-sm items-center bg-gray-500 rounded py-1 px-2">
-							<LuLogOut color="white" />
-							<span className="text-white">Logout</span>
-						</button>
+							icon={<MdFullscreen color="white" size={18} />}
+							color="black"
+						/>
+						<Button
+							className="text-sm bg-gray-500 gap-1 px-2 py-1 rounded"
+							icon={<LuLogOut color="white" />}
+							name="Logout"
+							color="white"
+						/>
 					</div>
 				</div>
 			</div>
